@@ -102,17 +102,17 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            <span className="text-foreground">Transform Your </span>
-            <span className="bg-gradient-to-r from-brand-orange to-brand-purple bg-clip-text text-transparent">
+            <span className="text-foreground drop-shadow-lg">Transform Your </span>
+            <span className="bg-gradient-to-r from-brand-orange to-brand-purple bg-clip-text text-transparent drop-shadow-lg">
               Brand Story
             </span>
             <br />
-            <span className="text-foreground">Into Success</span>
+            <span className="text-foreground drop-shadow-lg">Into Success</span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            From strategic PR and creative design to multimedia production and digital marketing, 
+          <p className="text-xl md:text-2xl text-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+            From <span className="text-brand-purple font-semibold">strategic PR</span> and <span className="text-brand-purple font-semibold">creative design</span> to multimedia production and digital marketing, 
             we help businesses stand out in today's competitive marketplace.
           </p>
 
@@ -139,16 +139,16 @@ const Hero = () => {
           {/* Trust Indicators */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-brand-orange mb-2">8+</div>
-              <div className="text-muted-foreground">Core Services</div>
+              <div className="text-3xl font-bold text-brand-orange mb-2 drop-shadow-lg">8+</div>
+              <div className="text-foreground/80 font-medium drop-shadow-md">Core Services</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-brand-purple mb-2">100+</div>
-              <div className="text-muted-foreground">Projects Completed</div>
+              <div className="text-3xl font-bold text-brand-purple mb-2 drop-shadow-lg">100+</div>
+              <div className="text-foreground/80 font-medium drop-shadow-md">Projects Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-brand-orange mb-2">24/7</div>
-              <div className="text-muted-foreground">Support Available</div>
+              <div className="text-3xl font-bold text-brand-orange mb-2 drop-shadow-lg">24/7</div>
+              <div className="text-foreground/80 font-medium drop-shadow-md">Support Available</div>
             </div>
           </div>
         </div>
