@@ -11,6 +11,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMediaDropdownOpen, setIsMediaDropdownOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -23,6 +24,13 @@ const Header = () => {
   const handleMediaItemClick = (item: string) => {
     // For now, just log the selection - can be expanded to navigate to actual pages
     console.log(`Navigate to ${item}`);
+    setIsMenuOpen(false);
+  };
+
+  const handleServiceItemClick = (service: string) => {
+    // For now, scroll to services section and log the selection
+    console.log(`Navigate to ${service}`);
+    scrollToSection('services');
     setIsMenuOpen(false);
   };
 
@@ -53,12 +61,66 @@ const Header = () => {
             >
               About
             </button>
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Services
-            </button>
+            
+            {/* Services Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="flex items-center text-foreground hover:text-primary transition-colors">
+                  Services
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-64 mt-2 bg-background border shadow-lg z-50">
+                <DropdownMenuItem 
+                  onClick={() => handleServiceItemClick('PR & Marketing Consultancy')}
+                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                >
+                  PR & Marketing Consultancy
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleServiceItemClick('Creative Design & Branding')}
+                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                >
+                  Creative Design & Branding
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleServiceItemClick('Event Management & Planning')}
+                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                >
+                  Event Management & Planning
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleServiceItemClick('Publishing & Printing')}
+                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                >
+                  Publishing & Printing
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleServiceItemClick('Web Design & Development')}
+                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                >
+                  Web Design & Development
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleServiceItemClick('Business & Strategic Plans')}
+                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                >
+                  Business & Strategic Plans
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleServiceItemClick('Multimedia Production')}
+                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                >
+                  Multimedia Production
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleServiceItemClick('Capacity Building & Training')}
+                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                >
+                  Capacity Building & Training
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             
             {/* Media Dropdown */}
             <DropdownMenu>
@@ -68,28 +130,28 @@ const Header = () => {
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-48 mt-2">
+              <DropdownMenuContent className="w-48 mt-2 bg-background border shadow-lg z-50">
                 <DropdownMenuItem 
                   onClick={() => handleMediaItemClick('News Updates')}
-                  className="cursor-pointer hover:bg-muted"
+                  className="cursor-pointer hover:bg-muted px-4 py-2"
                 >
                   News Updates
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleMediaItemClick('Videos')}
-                  className="cursor-pointer hover:bg-muted"
+                  className="cursor-pointer hover:bg-muted px-4 py-2"
                 >
                   Videos
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleMediaItemClick('Blogs')}
-                  className="cursor-pointer hover:bg-muted"
+                  className="cursor-pointer hover:bg-muted px-4 py-2"
                 >
                   Blogs
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleMediaItemClick('Photo Gallery')}
-                  className="cursor-pointer hover:bg-muted"
+                  className="cursor-pointer hover:bg-muted px-4 py-2"
                 >
                   Photo Gallery
                 </DropdownMenuItem>
@@ -139,12 +201,69 @@ const Header = () => {
               >
                 About
               </button>
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="text-left text-foreground hover:text-primary transition-colors"
-              >
-                Services
-              </button>
+              
+              {/* Mobile Services Section */}
+              <div>
+                <button 
+                  onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
+                  className="flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors"
+                >
+                  Services
+                  <ChevronDown className={`h-4 w-4 transition-transform ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isServicesDropdownOpen && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    <button 
+                      onClick={() => handleServiceItemClick('PR & Marketing Consultancy')}
+                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      PR & Marketing Consultancy
+                    </button>
+                    <button 
+                      onClick={() => handleServiceItemClick('Creative Design & Branding')}
+                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      Creative Design & Branding
+                    </button>
+                    <button 
+                      onClick={() => handleServiceItemClick('Event Management & Planning')}
+                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      Event Management & Planning
+                    </button>
+                    <button 
+                      onClick={() => handleServiceItemClick('Publishing & Printing')}
+                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      Publishing & Printing
+                    </button>
+                    <button 
+                      onClick={() => handleServiceItemClick('Web Design & Development')}
+                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      Web Design & Development
+                    </button>
+                    <button 
+                      onClick={() => handleServiceItemClick('Business & Strategic Plans')}
+                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      Business & Strategic Plans
+                    </button>
+                    <button 
+                      onClick={() => handleServiceItemClick('Multimedia Production')}
+                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      Multimedia Production
+                    </button>
+                    <button 
+                      onClick={() => handleServiceItemClick('Capacity Building & Training')}
+                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      Capacity Building & Training
+                    </button>
+                  </div>
+                )}
+              </div>
               
               {/* Mobile Media Section */}
               <div>
