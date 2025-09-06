@@ -17,17 +17,37 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Edenbrook Brand Colors */
+    --primary: 16 100% 66%; /* Vibrant Orange */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 292 69% 41%; /* Rich Purple */
+    --secondary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
+    --muted: 220 13% 95%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 16 100% 66%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Custom Brand Tokens */
+    --brand-orange: 16 100% 66%;
+    --brand-orange-light: 16 100% 75%;
+    --brand-orange-dark: 16 100% 55%;
+    --brand-purple: 292 69% 41%;
+    --brand-purple-light: 292 69% 55%;
+    --brand-purple-dark: 292 69% 30%;
+    
+    /* Gradients */
+    --gradient-brand: linear-gradient(135deg, hsl(var(--brand-orange)), hsl(var(--brand-purple)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    
+    /* Shadows */
+    --shadow-brand: 0 10px 40px -10px hsl(var(--brand-orange) / 0.3);
+    --shadow-elegant: 0 4px 20px -4px hsl(220 13% 69% / 0.3);
+    
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
