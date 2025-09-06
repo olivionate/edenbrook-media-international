@@ -51,8 +51,8 @@ const Hero = () => {
           />
         ))}
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/70 to-background/85"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-orange/10 to-brand-purple/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/40 to-background/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-orange/5 to-brand-purple/5"></div>
       </div>
 
       {/* Slider Navigation */}
