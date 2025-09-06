@@ -1,6 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Users, Target, Heart } from "lucide-react";
 
+// Import about section images
+import aboutTeam from "@/assets/about-team.jpg";
+import aboutMission from "@/assets/about-mission.jpg";
+import aboutVision from "@/assets/about-vision.jpg";
+
 const About = () => {
   const values = [
     { icon: <Heart className="h-6 w-6" />, title: "Integrity", description: "We maintain the highest standards of honesty and ethical conduct in all our dealings." },
@@ -58,12 +63,21 @@ const About = () => {
           </div>
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-brand-orange/20 to-brand-purple/20 rounded-lg blur-xl"></div>
-            <Card className="relative bg-background/80 backdrop-blur-sm border-0 shadow-lg">
-              <CardContent className="p-8">
-                <div className="flex items-center mb-6">
-                  <Users className="h-8 w-8 text-brand-orange mr-3" />
-                  <h4 className="text-xl font-semibold text-foreground">Our Team</h4>
+            <Card className="relative bg-background/80 backdrop-blur-sm border-0 shadow-lg overflow-hidden">
+              {/* Team Image */}
+              <div className="relative h-48">
+                <img 
+                  src={aboutTeam} 
+                  alt="Edenbrook Media Team"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 flex items-center">
+                  <Users className="h-8 w-8 text-white mr-3" />
+                  <h4 className="text-xl font-semibold text-white">Our Team</h4>
                 </div>
+              </div>
+              <CardContent className="p-8">
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Our team is built on people with great ideas. We have some of the brightest brains and 
                   greatest team players valued as part of our success.
@@ -80,9 +94,20 @@ const About = () => {
 
         {/* Mission & Vision */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <Card className="bg-gradient-to-br from-brand-orange/5 to-brand-orange/10 border-brand-orange/20">
+          <Card className="bg-gradient-to-br from-brand-orange/5 to-brand-orange/10 border-brand-orange/20 overflow-hidden">
+            {/* Mission Image */}
+            <div className="relative h-48">
+              <img 
+                src={aboutMission} 
+                alt="Our Mission"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-orange/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4">
+                <h4 className="text-2xl font-semibold text-white">Our Mission</h4>
+              </div>
+            </div>
             <CardContent className="p-8">
-              <h4 className="text-2xl font-semibold text-brand-orange mb-4">Our Mission</h4>
               <p className="text-muted-foreground leading-relaxed">
                 To help small, medium and large businesses and organizations with all their marketing 
                 and communication needs. As a regional leader in the industry, our passion is communications 
@@ -90,9 +115,20 @@ const About = () => {
               </p>
             </CardContent>
           </Card>
-          <Card className="bg-gradient-to-br from-brand-purple/5 to-brand-purple/10 border-brand-purple/20">
+          <Card className="bg-gradient-to-br from-brand-purple/5 to-brand-purple/10 border-brand-purple/20 overflow-hidden">
+            {/* Vision Image */}
+            <div className="relative h-48">
+              <img 
+                src={aboutVision} 
+                alt="Our Vision"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-purple/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4">
+                <h4 className="text-2xl font-semibold text-white">Our Vision</h4>
+              </div>
+            </div>
             <CardContent className="p-8">
-              <h4 className="text-2xl font-semibold text-brand-purple mb-4">Our Vision</h4>
               <p className="text-muted-foreground leading-relaxed">
                 To be East Africa's leading communications and marketing firm offering valuable and 
                 unmatched services to a broad range of organizations seeking to remain relevant in 
