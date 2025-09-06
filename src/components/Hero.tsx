@@ -1,18 +1,96 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import heroBg1 from "@/assets/hero-bg-1.jpg";
+import heroBg2 from "@/assets/hero-bg-2.jpg";
+import heroBg3 from "@/assets/hero-bg-3.jpg";
 
 const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const backgroundImages = [heroBg1, heroBg2, heroBg3];
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % backgroundImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + backgroundImages.length) % backgroundImages.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  // Auto-rotate slides every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/30 to-background"></div>
-      <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-r from-brand-orange/20 to-brand-purple/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-r from-brand-purple/15 to-brand-orange/15 rounded-full blur-3xl"></div>
+      {/* Background Image Slider */}
+      <div className="absolute inset-0">
+        {backgroundImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              backgroundImage: `url(${image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          />
+        ))}
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/70 to-background/85"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-orange/10 to-brand-purple/10"></div>
+      </div>
+
+      {/* Slider Navigation */}
+      <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={prevSlide}
+          className="bg-background/20 backdrop-blur-sm hover:bg-background/40 text-white border border-white/20"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </Button>
+      </div>
+      <div className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={nextSlide}
+          className="bg-background/20 backdrop-blur-sm hover:bg-background/40 text-white border border-white/20"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </Button>
+      </div>
+
+      {/* Slider Dots */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+        {backgroundImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? 'bg-white scale-125'
+                : 'bg-white/50 hover:bg-white/75'
+            }`}
+          />
+        ))}
+      </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
