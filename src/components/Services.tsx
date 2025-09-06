@@ -10,55 +10,73 @@ import {
   GraduationCap
 } from "lucide-react";
 
+// Import service images
+import servicePrMarketing from "@/assets/service-pr-marketing.jpg";
+import serviceCreativeDesign from "@/assets/service-creative-design.jpg";
+import serviceEventManagement from "@/assets/service-event-management.jpg";
+import servicePublishing from "@/assets/service-publishing.jpg";
+import serviceWebDevelopment from "@/assets/service-web-development.jpg";
+import serviceBusinessPlanning from "@/assets/service-business-planning.jpg";
+import serviceMultimedia from "@/assets/service-multimedia.jpg";
+import serviceTraining from "@/assets/service-training.jpg";
+
 const Services = () => {
   const services = [
     {
       icon: <Megaphone className="h-8 w-8" />,
       title: "PR & Marketing Consultancy",
       description: "Comprehensive PR & Marketing strategies, communications plans, and integrated marketing solutions tailored to your business needs.",
-      features: ["Market Segmentation", "Brand Strategy", "Digital Strategy", "Customer Relationship Management"]
+      features: ["Market Segmentation", "Brand Strategy", "Digital Strategy", "Customer Relationship Management"],
+      image: servicePrMarketing
     },
     {
       icon: <Palette className="h-8 w-8" />,
       title: "Creative Design & Branding",
       description: "Stylish presentations with cutting-edge graphics to move your business ahead of competitors with memorable brand identity.",
-      features: ["Corporate Graphic Design", "Brand Identity Manual", "Logo Design", "Marketing Materials"]
+      features: ["Corporate Graphic Design", "Brand Identity Manual", "Logo Design", "Marketing Materials"],
+      image: serviceCreativeDesign
     },
     {
       icon: <Calendar className="h-8 w-8" />,
       title: "Event Management & Planning",
       description: "Complete event management services from conception to execution, ensuring your events exceed expectations and achieve objectives.",
-      features: ["Exhibitions", "Conferences", "Workshops", "Product Launches"]
+      features: ["Exhibitions", "Conferences", "Workshops", "Product Launches"],
+      image: serviceEventManagement
     },
     {
       icon: <BookOpen className="h-8 w-8" />,
       title: "Publishing & Printing",
       description: "Quality design and print services for magazines, books, brochures, reports, and more with expert content development.",
-      features: ["Magazine Publishing", "Book Design", "Corporate Reports", "Marketing Collateral"]
+      features: ["Magazine Publishing", "Book Design", "Corporate Reports", "Marketing Collateral"],
+      image: servicePublishing
     },
     {
       icon: <Globe className="h-8 w-8" />,
       title: "Web Design & Development",
       description: "Professional website design and development services with fast turnaround times without compromising quality.",
-      features: ["Website Design", "E-commerce Solutions", "Mobile Responsive", "CMS Development"]
+      features: ["Website Design", "E-commerce Solutions", "Mobile Responsive", "CMS Development"],
+      image: serviceWebDevelopment
     },
     {
       icon: <Target className="h-8 w-8" />,
       title: "Business & Strategic Plans",
       description: "Comprehensive strategic and business planning services to guide your organization toward sustainable growth and success.",
-      features: ["Strategic Planning", "Business Plan Development", "Market Analysis", "Financial Projections"]
+      features: ["Strategic Planning", "Business Plan Development", "Market Analysis", "Financial Projections"],
+      image: serviceBusinessPlanning
     },
     {
       icon: <Camera className="h-8 w-8" />,
       title: "Multimedia Production",
       description: "Professional audio-visual services including photography, videography, and multimedia content creation for all occasions.",
-      features: ["Corporate Photography", "Video Production", "TV Commercials", "Event Coverage"]
+      features: ["Corporate Photography", "Video Production", "TV Commercials", "Event Coverage"],
+      image: serviceMultimedia
     },
     {
       icon: <GraduationCap className="h-8 w-8" />,
       title: "Capacity Building & Training",
       description: "Knowledge development and mobilization services to support sustainable development across various sectors and industries.",
-      features: ["Technical Training", "Workshop Facilitation", "Strategic Planning Support", "Change Management"]
+      features: ["Technical Training", "Workshop Facilitation", "Strategic Planning Support", "Change Management"],
+      image: serviceTraining
     }
   ];
 
@@ -78,23 +96,33 @@ const Services = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-lg transition-all duration-300 border-0 bg-background/80 backdrop-blur-sm hover:bg-background"
+              className="group hover:shadow-lg transition-all duration-300 border-0 bg-background/80 backdrop-blur-sm hover:bg-background overflow-hidden"
             >
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-r from-brand-orange to-brand-purple rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300">
+              {/* Service Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 w-12 h-12 bg-gradient-to-r from-brand-orange to-brand-purple rounded-lg flex items-center justify-center text-white">
                   {service.icon}
                 </div>
-                <CardTitle className="text-xl font-semibold text-foreground group-hover:text-brand-orange transition-colors">
+              </div>
+              
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg font-semibold text-foreground group-hover:text-brand-orange transition-colors">
                   {service.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <CardDescription className="text-muted-foreground mb-4 leading-relaxed">
+              <CardContent className="pt-0">
+                <CardDescription className="text-muted-foreground mb-4 leading-relaxed text-sm">
                   {service.description}
                 </CardDescription>
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-muted-foreground">
+                    <li key={idx} className="flex items-center text-xs text-muted-foreground">
                       <div className="w-2 h-2 bg-gradient-to-r from-brand-orange to-brand-purple rounded-full mr-2 flex-shrink-0"></div>
                       {feature}
                     </li>
