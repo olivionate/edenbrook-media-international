@@ -1,15 +1,28 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMediaDropdownOpen, setIsMediaDropdownOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
+  const handleMediaItemClick = (item: string) => {
+    // For now, just log the selection - can be expanded to navigate to actual pages
+    console.log(`Navigate to ${item}`);
     setIsMenuOpen(false);
   };
 
@@ -46,6 +59,43 @@ const Header = () => {
             >
               Services
             </button>
+            
+            {/* Media Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="flex items-center text-foreground hover:text-primary transition-colors">
+                  Media
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-48 mt-2">
+                <DropdownMenuItem 
+                  onClick={() => handleMediaItemClick('News Updates')}
+                  className="cursor-pointer hover:bg-muted"
+                >
+                  News Updates
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleMediaItemClick('Videos')}
+                  className="cursor-pointer hover:bg-muted"
+                >
+                  Videos
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleMediaItemClick('Blogs')}
+                  className="cursor-pointer hover:bg-muted"
+                >
+                  Blogs
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleMediaItemClick('Photo Gallery')}
+                  className="cursor-pointer hover:bg-muted"
+                >
+                  Photo Gallery
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
             <button 
               onClick={() => scrollToSection('contact')}
               className="text-foreground hover:text-primary transition-colors"
@@ -95,6 +145,46 @@ const Header = () => {
               >
                 Services
               </button>
+              
+              {/* Mobile Media Section */}
+              <div>
+                <button 
+                  onClick={() => setIsMediaDropdownOpen(!isMediaDropdownOpen)}
+                  className="flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors"
+                >
+                  Media
+                  <ChevronDown className={`h-4 w-4 transition-transform ${isMediaDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isMediaDropdownOpen && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    <button 
+                      onClick={() => handleMediaItemClick('News Updates')}
+                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      News Updates
+                    </button>
+                    <button 
+                      onClick={() => handleMediaItemClick('Videos')}
+                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      Videos
+                    </button>
+                    <button 
+                      onClick={() => handleMediaItemClick('Blogs')}
+                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      Blogs
+                    </button>
+                    <button 
+                      onClick={() => handleMediaItemClick('Photo Gallery')}
+                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      Photo Gallery
+                    </button>
+                  </div>
+                )}
+              </div>
+              
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="text-left text-foreground hover:text-primary transition-colors"
