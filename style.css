@@ -1,0 +1,9 @@
+/*
+Theme Name: Edenbrook Media Theme
+Description: Professional WordPress theme for Edenbrook Media International - converted from React/Vite project while maintaining exact functionality
+Version: 1.0
+Author: Edenbrook Media International
+*/
+
+/* Import the original styling */
+@import url('assets/css/main.css');
