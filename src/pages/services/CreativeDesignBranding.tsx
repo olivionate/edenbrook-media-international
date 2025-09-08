@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { servicesData } from "@/data/servicesData";
+import creativeDesignImg from "@/assets/service-creative-design.jpg";
 
 const CreativeDesignBranding = () => {
   const serviceData = servicesData["Creative Design & Branding"];
@@ -11,7 +12,14 @@ const CreativeDesignBranding = () => {
       <main className="pt-16">
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-bold text-primary mb-6">Creative Design & Branding</h1>
+            <div className="mb-8">
+              <img 
+                src={creativeDesignImg} 
+                alt="Creative Design & Branding" 
+                className="w-full h-64 object-cover rounded-lg shadow-lg mb-6"
+              />
+              <h1 className="text-4xl font-bold text-primary mb-6">Creative Design & Branding</h1>
+            </div>
             <div className="prose prose-lg max-w-none">
               <div className="whitespace-pre-line text-foreground leading-relaxed">
                 {serviceData}
