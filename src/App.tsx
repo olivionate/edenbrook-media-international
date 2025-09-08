@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import GenerateImages from "./pages/GenerateImages";
 import PRMarketingConsultancy from "./pages/services/PRMarketingConsultancy";
 import CreativeDesignBranding from "./pages/services/CreativeDesignBranding";
 import EventManagementPlanning from "./pages/services/EventManagementPlanning";
@@ -24,6 +25,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/generate-images" element={<GenerateImages />} />
           <Route path="/services/pr-marketing-consultancy" element={<PRMarketingConsultancy />} />
           <Route path="/services/creative-design-branding" element={<CreativeDesignBranding />} />
           <Route path="/services/event-management-planning" element={<EventManagementPlanning />} />
