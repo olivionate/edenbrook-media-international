@@ -43,7 +43,7 @@ const Header = () => {
   const handleMediaItemClick = (item: string) => {
     // Create placeholder pages for media items
     const mediaRoutes: { [key: string]: string } = {
-      'News Updates': '/media/news',
+      'News & Updates': '/media/news',
       'Videos': '/media/videos', 
       'Blogs': '/media/blogs',
       'Photo Gallery': '/media/gallery'
@@ -184,10 +184,10 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-48 mt-2 bg-background border shadow-lg z-50">
                 <DropdownMenuItem 
-                  onClick={() => handleMediaItemClick('News Updates')}
+                  onClick={() => handleMediaItemClick('News & Updates')}
                   className="cursor-pointer hover:bg-muted px-4 py-2"
                 >
-                  News Updates
+                  News & Updates
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleMediaItemClick('Videos')}
@@ -380,10 +380,10 @@ const Header = () => {
                 {isMediaDropdownOpen && (
                   <div className="ml-4 mt-2 space-y-2">
                     <button 
-                      onClick={() => handleMediaItemClick('News Updates')}
+                      onClick={() => handleMediaItemClick('News & Updates')}
                       className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
                     >
-                      News Updates
+                      News & Updates
                     </button>
                     <button 
                       onClick={() => handleMediaItemClick('Videos')}
