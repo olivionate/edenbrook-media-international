@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import GenerateImages from "./pages/GenerateImages";
 import NewsUpdates from "./pages/NewsUpdates";
+import Article from "./pages/Article";
 import PRMarketingConsultancy from "./pages/services/PRMarketingConsultancy";
 import CreativeDesignBranding from "./pages/services/CreativeDesignBranding";
 import EventManagementPlanning from "./pages/services/EventManagementPlanning";
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/generate-images" element={<GenerateImages />} />
           <Route path="/news-updates" element={<NewsUpdates />} />
+          <Route path="/news-updates/article/:id" element={<Article />} />
           <Route path="/services/pr-marketing-consultancy" element={<PRMarketingConsultancy />} />
           <Route path="/services/creative-design-branding" element={<CreativeDesignBranding />} />
           <Route path="/services/event-management-planning" element={<EventManagementPlanning />} />

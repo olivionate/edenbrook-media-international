@@ -158,9 +158,18 @@ const NewsUpdates = () => {
                           variant="outline"
                           size="sm"
                           className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                          onClick={() => window.open(article.sourceUrl, '_blank')}
+                          onClick={() => window.open(`/news-updates/article/${article.id}`, '_self')}
                         >
-                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Read Full Article
+                        </Button>
+                      )}
+                      {article.sourceUrl === "#" && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                          onClick={() => window.location.href = `/news-updates/article/${article.id}`}
+                        >
                           Read Full Article
                         </Button>
                       )}
