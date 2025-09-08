@@ -44,6 +44,8 @@ const Header = () => {
     // Navigate to media pages
     if (item === 'News & Updates') {
       window.location.href = '/news-updates';
+    } else if (item === 'Blogs') {
+      window.location.href = '/blogs';
     } else {
       // For other items, alert user that these pages are coming soon
       alert(`${item} page coming soon!`);

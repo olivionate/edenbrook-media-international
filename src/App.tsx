@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound";
 import GenerateImages from "./pages/GenerateImages";
 import NewsUpdates from "./pages/NewsUpdates";
 import Article from "./pages/Article";
+import Blogs from "./pages/Blogs";
+import BlogPost from "./pages/BlogPost";
 import PRMarketingConsultancy from "./pages/services/PRMarketingConsultancy";
 import CreativeDesignBranding from "./pages/services/CreativeDesignBranding";
 import EventManagementPlanning from "./pages/services/EventManagementPlanning";
@@ -30,6 +32,8 @@ const App = () => (
           <Route path="/generate-images" element={<GenerateImages />} />
           <Route path="/news-updates" element={<NewsUpdates />} />
           <Route path="/news-updates/article/:id" element={<Article />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/:id" element={<BlogPost />} />
           <Route path="/services/pr-marketing-consultancy" element={<PRMarketingConsultancy />} />
           <Route path="/services/creative-design-branding" element={<CreativeDesignBranding />} />
           <Route path="/services/event-management-planning" element={<EventManagementPlanning />} />
