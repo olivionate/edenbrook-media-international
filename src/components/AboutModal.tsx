@@ -51,22 +51,18 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
         </DialogHeader>
         
         <div className="overflow-y-auto px-6 pb-6 space-y-8">
-          {/* Company Overview Section */}
+          {/* About Us Introduction */}
           <section className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
               <div className="space-y-4">
                 <h3 className="text-2xl font-semibold text-foreground">
-                  Experienced, Result-Oriented Business Advisors
+                  About Us
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Edenbrook Media International is a Kenyan-based media entity with broad expertise in PR & Marketing 
-                  Consultancy, Strategic & Business Planning, Branding & Creative Design, Event Planning & Management, 
-                  and much more.
+                  Edenbrook Media International is a Kenyan based media entity with a broad expertise in services relating to PR & Marketing Consultancy, Strategic & Business Planning, Branding & Creative Design, Event Planning & Management, Web Design & Development, Multimedia Production, Publishing & Printing, and Capacity Building & Training at large.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  We're experienced, result-oriented business advisors with years of practical hands-on experience 
-                  in business planning, marketing, PR and communications. Through a creative, disciplined and hands-on 
-                  approach, we help businesses raise their profile and get noticed by customers and target audiences.
+                  We're experienced, result-oriented business advisors with years of practical hands-on experience in the areas of business planning, marketing, PR and communications. Once we understand your needs, we'll get down to work. Through a creative, disciplined and hands-on approach, we can help your business to raise its profile and get you noticed by customers and target audiences.
                 </p>
               </div>
               <div className="relative">
@@ -91,13 +87,19 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                 </li>
                 <li className="flex items-start text-muted-foreground">
                   <div className="w-2 h-2 bg-brand-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  Turn your long-term business vision into workable action plans
+                  Turn your long term business vision into a workable marketing, PR and communications action plan, with tactical milestones
                 </li>
                 <li className="flex items-start text-muted-foreground">
                   <div className="w-2 h-2 bg-brand-orange rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  Stand out in your marketplace and make the competition notice
+                  Stand out in your market place and make the competition sit up
                 </li>
               </ul>
+            </div>
+            
+            <div className="space-y-4">
+              <p className="text-muted-foreground leading-relaxed">
+                At Edenbrook Media International, we'll work in partnership with you, from developing marketing strategy to creating your digital footprint. Our practical, specialist expertise and business advice can help you raise your profile and engage with your customers.
+              </p>
             </div>
           </section>
 
@@ -123,23 +125,20 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
               </div>
               <CardContent className="p-8">
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Our team is built on people with great ideas. We have some of the brightest brains and 
-                  greatest team players valued as part of our success.
+                  Our team is built on people with great ideas; needless to say, on our team, we already have some of the brightest brains and greatest team players that are a valued part of our success. Yet, we are always looking to engage intelligent self-thinkers to work with us to fulfill our clients' demands.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Our highly skilled communications consultants, strategic planners, marketing experts, 
-                  creative personnel, graphic designers, and programmers work in consultation with you 
-                  to create impactful solutions.
+                  Our highly skilled communications consultants, strategic planners, marketing gurus, creative personnel, graphic designers, and programmers work in consultation with you and your staff to create the images that will profile your company, along with its core values and corporate ethics. We also work with you to attract the eye of potential clients, in addition to promoting sales goals within your current marketplace.
                 </p>
               </CardContent>
             </Card>
           </section>
 
-          {/* Mission & Vision Section */}
+          {/* Our Expertise Section */}
           <section className="space-y-6">
             <div className="text-center">
               <h3 className="text-2xl font-semibold mb-8">
-                Mission & <span className="bg-gradient-to-r from-brand-orange to-brand-purple bg-clip-text text-transparent">Vision</span>
+                Our <span className="bg-gradient-to-r from-brand-orange to-brand-purple bg-clip-text text-transparent">Expertise</span>
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -147,19 +146,17 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                 <div className="relative h-48">
                   <img 
                     src={aboutMissionAI} 
-                    alt="Our Mission"
+                    alt="Our Comprehensive Solutions"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-orange/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4">
-                    <h4 className="text-2xl font-semibold text-white">Our Mission</h4>
+                    <h4 className="text-2xl font-semibold text-white">Comprehensive Solutions</h4>
                   </div>
                 </div>
                 <CardContent className="p-6">
                   <p className="text-muted-foreground leading-relaxed">
-                    To help small, medium and large businesses and organizations with all their marketing 
-                    and communication needs. As a regional leader in the industry, our passion is communications 
-                    and developing solutions to our customers' biggest design challenges.
+                    Our wealth of expertise and comprehensive solutions, coupled with a successful track record of delivering high-end marketing and communication services, pave the way for even greater market-oriented results. We make sure your corporate content and images are represented consistently, accurately and effectively every time with every assignment we handle.
                   </p>
                 </CardContent>
               </Card>
@@ -168,59 +165,51 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                 <div className="relative h-48">
                   <img 
                     src={aboutVisionAI} 
-                    alt="Our Vision"
+                    alt="Our Planning Process"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-purple/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4">
-                    <h4 className="text-2xl font-semibold text-white">Our Vision</h4>
+                    <h4 className="text-2xl font-semibold text-white">Our Process</h4>
                   </div>
                 </div>
                 <CardContent className="p-6">
                   <p className="text-muted-foreground leading-relaxed">
-                    To be East Africa's leading communications and marketing firm offering valuable and 
-                    unmatched services to a broad range of organizations seeking to remain relevant in 
-                    today's changing marketplace.
+                    Each creation is well-planned, starting with the brainstorming sessions, continuing through production and right up to the completion. It is all about planning, managing, trying to focus on the parts that have perhaps been overlooked, challenging assumptions, seeking alternatives and choosing the right solutions. A professional business image, created by the experts at Edenbrook Media International, is guaranteed with every assignment we undertake.
                   </p>
                 </CardContent>
               </Card>
             </div>
           </section>
 
-          {/* Core Values Section */}
+          {/* Our Partners Section */}
           <section className="space-y-6">
             <div className="text-center">
               <h3 className="text-2xl font-semibold mb-8">
-                Our <span className="bg-gradient-to-r from-brand-orange to-brand-purple bg-clip-text text-transparent">Core Values</span>
+                Our <span className="bg-gradient-to-r from-brand-orange to-brand-purple bg-clip-text text-transparent">Partners</span>
               </h3>
             </div>
             
-            {/* Values image */}
+            {/* Partners image */}
             <div className="relative mb-8">
               <img 
                 src={aboutValuesAI} 
-                alt="Our Core Values"
+                alt="Our Partners"
                 className="w-full h-64 object-cover rounded-lg shadow-lg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent rounded-lg"></div>
               <div className="absolute bottom-4 left-4">
-                <h4 className="text-2xl font-semibold text-white">Built on Strong Values</h4>
+                <h4 className="text-2xl font-semibold text-white">Partnership Success</h4>
               </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {values.map((value, index) => (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300 bg-background/80 backdrop-blur-sm border-0">
-                  <CardContent className="p-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-brand-orange to-brand-purple rounded-full flex items-center justify-center text-white mx-auto mb-4">
-                      {value.icon}
-                    </div>
-                    <h4 className="text-xl font-semibold text-foreground mb-3">{value.title}</h4>
-                    <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            <Card className="bg-background/80 backdrop-blur-sm border-0 shadow-lg">
+              <CardContent className="p-8">
+                <p className="text-muted-foreground leading-relaxed text-center">
+                  Our partners are also a big part of our success. We believe in forging company partnerships that can benefit our end customers; that is why we hand pick individuals and companies that will offer you the same quality level of products and services that meet our company standards.
+                </p>
+              </CardContent>
+            </Card>
           </section>
         </div>
       </DialogContent>
