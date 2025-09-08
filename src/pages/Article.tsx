@@ -1,24 +1,32 @@
 import { useParams, Link } from "react-router-dom";
+import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { newsArticles } from "@/data/newsData";
-import { articlesContent } from "@/data/articleContent";
+import { articleContents } from "@/data/articleContent";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import "../styles/article.css";
 
 const Article = () => {
   const { id } = useParams<{ id: string }>();
+  
   const article = newsArticles.find(a => a.id === id);
-  const content = articlesContent[id || ""];
-
+  const content = articleContents[id || ""];
+  
   if (!article) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-background">
         <Header />
-        <main className="pt-20 pb-12 flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Article Not Found</h1>
-            <Link to="/news-updates" className="text-blue-600 hover:text-blue-800">
-              ← Back to News
-            </Link>
+        <main className="pt-16">
+          <div className="container mx-auto px-4 py-16">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl font-bold text-foreground mb-4">Article Not Found</h1>
+              <p className="text-muted-foreground mb-8">The article you're looking for doesn't exist.</p>
+              <Link to="/news-updates">
+                <Button>Back to News & Updates</Button>
+              </Link>
+            </div>
           </div>
         </main>
         <Footer />
@@ -26,78 +34,162 @@ const Article = () => {
     );
   }
 
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-20 pb-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <Link 
-              to="/news-updates" 
-              className="text-blue-600 hover:text-blue-800 mb-8 inline-block"
-            >
-              ← Back to News
-            </Link>
-            
-            <article className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <img 
-                src={article.imageUrl} 
-                alt={article.title}
-                className="w-full h-64 object-cover"
-              />
+      
+      <main className="pt-16">
+        {/* Article Header */}
+        <section className="bg-gradient-to-r from-brand-orange/5 to-brand-purple/5 py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <Link to="/news-updates" className="inline-flex items-center text-primary hover:text-primary-dark mb-8 transition-colors">
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to News & Updates
+              </Link>
               
-              <div className="p-8">
-                <div className="mb-4">
-                  <span className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
-                    {article.category}
-                  </span>
+              <Badge variant="secondary" className="mb-4">
+                {article.category}
+              </Badge>
+              
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+                {article.title}
+              </h1>
+              
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                {article.summary}
+              </p>
+              
+              <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <User className="h-4 w-4" />
+                  <span>Edenbrook Media Team</span>
                 </div>
-                
-                <h1 className="text-4xl font-bold text-gray-900 mb-4">{article.title}</h1>
-                
-                <div className="flex items-center text-sm text-gray-500 mb-8">
-                  <time>{new Date(article.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}</time>
-                  <span className="mx-2">•</span>
+                <div className="flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  <span>{formatDate(article.date)}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4" />
                   <span>{article.readTime}</span>
-                  <span className="mx-2">•</span>
-                  <span>By Edenbrook Media Team</span>
-                </div>
-                
-                <div className="prose prose-lg max-w-none">
-                  {content ? (
-                    <div dangerouslySetInnerHTML={{ __html: content }} />
-                  ) : (
-                    <div>
-                      <p className="text-lg leading-relaxed mb-6">{article.summary}</p>
-                      <p>This is a sample article content. The full article content would be displayed here with proper formatting, images, and comprehensive information about {article.title.toLowerCase()}.</p>
-                    </div>
-                  )}
-                </div>
-                
-                <div className="mt-12 pt-8 border-t border-gray-200">
-                  <div className="bg-gray-50 p-6 rounded-lg">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Ready to Get Started?</h3>
-                    <p className="text-gray-600 mb-4">
-                      Contact Edenbrook Media International today to discuss how we can help 
-                      elevate your brand and achieve your communication goals.
-                    </p>
-                    <Link 
-                      to="/#contact" 
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200"
-                    >
-                      Contact Us
-                    </Link>
-                  </div>
                 </div>
               </div>
-            </article>
+            </div>
           </div>
-        </div>
+        </section>
+
+        {/* Featured Image */}
+        <section className="py-8">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <img
+                src={article.imageUrl}
+                alt={article.title}
+                className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = `https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop&crop=center`;
+                }}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Article Content */}
+        <section className="pb-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-foreground prose-strong:text-foreground prose-li:text-foreground">
+                {content ? (
+                  <div 
+                    className="article-content"
+                    dangerouslySetInnerHTML={{ 
+                      __html: content.content
+                    }}
+                  />
+                ) : (
+                  <div className="bg-muted/30 rounded-lg p-8">
+                    <h2 className="text-2xl font-bold mb-4">Full Article Content Coming Soon</h2>
+                    <p className="text-muted-foreground mb-6">
+                      We're currently developing the complete content for this article. 
+                      The summary above provides key insights, and the full detailed article will be available shortly.
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      For immediate inquiries about this topic, please contact our team directly.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Related Articles */}
+        <section className="bg-muted/30 py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-foreground mb-8">Related Articles</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {newsArticles
+                  .filter(a => a.category === article.category && a.id !== article.id)
+                  .slice(0, 4)
+                  .map((relatedArticle) => (
+                    <Link
+                      key={relatedArticle.id}
+                      to={`/news-updates/article/${relatedArticle.id}`}
+                      className="block bg-background rounded-lg p-6 hover:shadow-lg transition-shadow"
+                    >
+                      <Badge variant="outline" className="mb-2">
+                        {relatedArticle.category}
+                      </Badge>
+                      <h3 className="text-lg font-semibold text-foreground mb-2 line-clamp-2">
+                        {relatedArticle.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2">
+                        {relatedArticle.summary}
+                      </p>
+                      <div className="flex items-center gap-4 mt-4 text-xs text-muted-foreground">
+                        <span>{formatDate(relatedArticle.date)}</span>
+                        <span>{relatedArticle.readTime}</span>
+                      </div>
+                    </Link>
+                  ))}
+              </div>
+              
+              {newsArticles.filter(a => a.category === article.category && a.id !== article.id).length === 0 && (
+                <p className="text-muted-foreground">No related articles found in this category.</p>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact CTA */}
+        <section className="bg-gradient-to-r from-brand-orange to-brand-purple py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <h2 className="text-3xl font-bold mb-4">Interested in Our Services?</h2>
+              <p className="text-xl mb-8 opacity-90">
+                Let's discuss how Edenbrook Media can help transform your communication strategy
+              </p>
+              <Link to="/#contact">
+                <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
+                  Get in Touch
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
+      
       <Footer />
     </div>
   );

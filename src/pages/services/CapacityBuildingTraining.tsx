@@ -1,18 +1,29 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { servicesData } from "@/data/servicesData";
+import trainingImg from "@/assets/service-training.jpg";
 
 const CapacityBuildingTraining = () => {
+  const serviceData = servicesData["Capacity Building & Training"];
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <Header />
-      <main className="pt-20 pb-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="pt-16">
+        <div className="container mx-auto px-4 py-12">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-bold text-gray-900 mb-8">Capacity Building & Training</h1>
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <p className="text-lg leading-relaxed">
-                Edenbrook Media International also offers high quality training programs to enhance your team's capabilities and skills.
-              </p>
+            <div className="mb-8">
+              <img 
+                src={trainingImg} 
+                alt="Capacity Building & Training" 
+                className="w-full h-64 object-cover rounded-lg shadow-lg mb-6"
+              />
+              <h1 className="text-4xl font-bold text-primary mb-6">Capacity Building & Training</h1>
+            </div>
+            <div className="prose prose-lg max-w-none">
+              <div className="whitespace-pre-line text-foreground leading-relaxed">
+                {serviceData}
+              </div>
             </div>
           </div>
         </div>

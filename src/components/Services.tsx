@@ -1,86 +1,145 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { 
+  Megaphone, 
+  Palette, 
+  Calendar, 
+  BookOpen, 
+  Globe, 
+  Target, 
+  Camera,
+  GraduationCap
+} from "lucide-react";
+
+// Import service images
+import servicePrMarketing from "@/assets/service-pr-marketing.jpg";
+import serviceCreativeDesign from "@/assets/service-creative-design.jpg";
+import serviceEventManagement from "@/assets/service-event-management.jpg";
+import servicePublishing from "@/assets/service-publishing.jpg";
+import serviceWebDevelopment from "@/assets/service-web-development.jpg";
+import serviceBusinessPlanning from "@/assets/service-business-planning.jpg";
+import serviceMultimedia from "@/assets/service-multimedia.jpg";
+import serviceTraining from "@/assets/service-training.jpg";
 
 const Services = () => {
   const services = [
     {
-      name: "PR & Marketing Consultancy",
-      slug: "pr-marketing-consultancy",
-      description: "Comprehensive PR and marketing strategies that bring success in the marketplace.",
-      image: "/src/assets/service-pr-marketing.jpg"
+      icon: <Megaphone className="h-8 w-8" />,
+      title: "PR & Marketing Consultancy",
+      description: "Comprehensive PR & Marketing strategies, communications plans, and integrated marketing solutions tailored to your business needs.",
+      features: ["Market Segmentation", "Brand Strategy", "Digital Strategy", "Customer Relationship Management"],
+      image: servicePrMarketing,
+      link: "/services/pr-marketing-consultancy"
     },
     {
-      name: "Creative Design & Branding",
-      slug: "creative-design-branding", 
-      description: "Stylish presentations with cutting-edge graphics to move your business forward.",
-      image: "/src/assets/service-creative-design.jpg"
+      icon: <Palette className="h-8 w-8" />,
+      title: "Creative Design & Branding",
+      description: "Stylish presentations with cutting-edge graphics to move your business ahead of competitors with memorable brand identity.",
+      features: ["Corporate Graphic Design", "Brand Identity Manual", "Logo Design", "Marketing Materials"],
+      image: serviceCreativeDesign,
+      link: "/services/creative-design-branding"
     },
     {
-      name: "Event Management & Planning",
-      slug: "event-management-planning",
-      description: "Professional event management that exceeds expectations and achieves your goals.",
-      image: "/src/assets/service-event-management.jpg"
+      icon: <Calendar className="h-8 w-8" />,
+      title: "Event Management & Planning",
+      description: "Complete event management services from conception to execution, ensuring your events exceed expectations and achieve objectives.",
+      features: ["Exhibitions", "Conferences", "Workshops", "Product Launches"],
+      image: serviceEventManagement,
+      link: "/services/event-management-planning"
     },
     {
-      name: "Publishing & Printing",
-      slug: "publishing-printing",
-      description: "Quality design and print works including magazines, books, and brochures.",
-      image: "/src/assets/service-publishing.jpg"
+      icon: <BookOpen className="h-8 w-8" />,
+      title: "Publishing & Printing",
+      description: "Quality design and print services for magazines, books, brochures, reports, and more with expert content development.",
+      features: ["Magazine Publishing", "Book Design", "Corporate Reports", "Marketing Collateral"],
+      image: servicePublishing,
+      link: "/services/publishing-printing"
     },
     {
-      name: "Web Design & Development",
-      slug: "web-design-development",
-      description: "Comprehensive web services from design to full development and implementation.",
-      image: "/src/assets/service-web-development.jpg"
+      icon: <Globe className="h-8 w-8" />,
+      title: "Web Design & Development",
+      description: "Professional website design and development services with fast turnaround times without compromising quality.",
+      features: ["Website Design", "E-commerce Solutions", "Mobile Responsive", "CMS Development"],
+      image: serviceWebDevelopment,
+      link: "/services/web-design-development"
     },
     {
-      name: "Business & Strategic Plans",
-      slug: "business-strategic-plans",
-      description: "Strategic planning services to guide your organization toward success.",
-      image: "/src/assets/service-business-planning.jpg"
+      icon: <Target className="h-8 w-8" />,
+      title: "Business & Strategic Plans",
+      description: "Comprehensive strategic and business planning services to guide your organization toward sustainable growth and success.",
+      features: ["Strategic Planning", "Business Plan Development", "Market Analysis", "Financial Projections"],
+      image: serviceBusinessPlanning,
+      link: "/services/business-strategic-plans"
     },
     {
-      name: "Multimedia Production",
-      slug: "multimedia-production",
-      description: "Audio visual services providing world-class experiences for events and marketing.",
-      image: "/src/assets/service-multimedia.jpg"
+      icon: <Camera className="h-8 w-8" />,
+      title: "Multimedia Production",
+      description: "Professional audio-visual services including photography, videography, and multimedia content creation for all occasions.",
+      features: ["Corporate Photography", "Video Production", "TV Commercials", "Event Coverage"],
+      image: serviceMultimedia,
+      link: "/services/multimedia-production"
     },
     {
-      name: "Capacity Building & Training",
-      slug: "capacity-building-training",
-      description: "High quality training programs to enhance your team's capabilities.",
-      image: "/src/assets/service-training.jpg"
+      icon: <GraduationCap className="h-8 w-8" />,
+      title: "Capacity Building & Training",
+      description: "Knowledge development and mobilization services to support sustainable development across various sectors and industries.",
+      features: ["Technical Training", "Workshop Facilitation", "Strategic Planning Support", "Change Management"],
+      image: serviceTraining,
+      link: "/services/capacity-building-training"
     }
   ];
 
   return (
-    <section id="services" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-20 bg-muted/30">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive media and communication solutions tailored to your business needs.
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Our <span className="bg-gradient-to-r from-brand-orange to-brand-purple bg-clip-text text-transparent">Services</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Comprehensive solutions to help your business thrive in today's competitive marketplace
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service) => (
-            <div key={service.slug} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <img 
-                src={service.image} 
-                alt={service.name}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.name}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <Link 
-                  to={`/services/${service.slug}`}
-                  className="text-blue-600 hover:text-blue-800 font-semibold"
-                >
-                  Learn More →
-                </Link>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {services.map((service, index) => (
+            <Link to={service.link} key={index}>
+              <Card 
+                className="group hover:shadow-lg transition-all duration-300 border-0 bg-background/80 backdrop-blur-sm hover:bg-background overflow-hidden cursor-pointer"
+              >
+              {/* Service Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 w-12 h-12 bg-gradient-to-r from-brand-orange to-brand-purple rounded-lg flex items-center justify-center text-white">
+                  {service.icon}
+                </div>
               </div>
-            </div>
+              
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg font-semibold text-foreground group-hover:text-brand-orange transition-colors">
+                  {service.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <CardDescription className="text-muted-foreground mb-4 leading-relaxed text-sm">
+                  {service.description}
+                </CardDescription>
+                <ul className="space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-xs text-muted-foreground">
+                      <div className="w-2 h-2 bg-gradient-to-r from-brand-orange to-brand-purple rounded-full mr-2 flex-shrink-0"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            </Link>
           ))}
         </div>
       </div>

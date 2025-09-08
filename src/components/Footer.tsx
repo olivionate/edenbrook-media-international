@@ -1,56 +1,86 @@
+import { Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-foreground text-background py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">E</span>
-              </div>
-              <span className="font-bold text-xl">Edenbrook Media</span>
-            </div>
-            <p className="text-gray-300 mb-4">
-              Edenbrook Media International is a leading media and communications company providing 
-              comprehensive PR, marketing, design, and multimedia services.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                </svg>
-              </a>
+          <div className="lg:col-span-2">
+            <div className="mb-6">
+              <img 
+                src="/lovable-uploads/4aa4b176-5c70-4c8f-9ac6-5e25a776ed6b.png" 
+                alt="Edenbrook Media International" 
+                className="h-10 w-auto mb-4 brightness-0 invert"
+              />
+              <p className="text-background/80 leading-relaxed">
+                Edenbrook Media International is East Africa's leading communications and marketing firm, 
+                offering comprehensive solutions to help businesses thrive in today's competitive marketplace.
+              </p>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
+            <h4 className="text-lg font-semibold mb-4 text-brand-orange">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-gray-400 hover:text-white transition-colors duration-200">About Us</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-white transition-colors duration-200">Our Services</a></li>
-              <li><a href="/news-updates" className="text-gray-400 hover:text-white transition-colors duration-200">News & Updates</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors duration-200">Contact</a></li>
+              <li><Link to="/#home" className="text-background/80 hover:text-brand-orange transition-colors">Home</Link></li>
+              <li><Link to="/#about" className="text-background/80 hover:text-brand-orange transition-colors">About Us</Link></li>
+              <li><Link to="/#services" className="text-background/80 hover:text-brand-orange transition-colors">Services</Link></li>
+              <li><Link to="/#contact" className="text-background/80 hover:text-brand-orange transition-colors">Contact</Link></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Contact Info</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <span className="block">Email:</span>
-                <a href="mailto:info@edenbrookmedia.com" className="hover:text-white transition-colors duration-200">
-                  info@edenbrookmedia.com
-                </a>
-              </li>
-            </ul>
+            <h4 className="text-lg font-semibold mb-4 text-brand-purple">Contact Info</h4>
+            <div className="space-y-3">
+              <div className="flex items-start space-x-3">
+                <MapPin className="h-5 w-5 text-brand-orange mt-0.5 flex-shrink-0" />
+                <div className="text-background/80 text-sm">
+                  TRV Plaza, 5th Floor<br />
+                  Muthithi Road, Westlands<br />
+                  Nairobi, Kenya
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 text-brand-orange flex-shrink-0" />
+                <div className="text-background/80 text-sm">
+                  <a href="tel:+254721658788" className="hover:text-brand-orange transition-colors">+254 721 658 788</a><br />
+                  <a href="tel:+254736325788" className="hover:text-brand-orange transition-colors">+254 736 325 788</a>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="h-5 w-5 text-brand-orange flex-shrink-0" />
+                <div className="text-background/80 text-sm">
+                  <a href="mailto:info@edenbrookmedia.co.ke" className="hover:text-brand-orange transition-colors">info@edenbrookmedia.co.ke</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Edenbrook Media International. All rights reserved.</p>
+        <div className="border-t border-background/20 mt-8 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-background/60 text-sm">
+              © 2024 Edenbrook Media International. All rights reserved.
+            </p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <button 
+                onClick={() => alert('Privacy Policy page coming soon!')} 
+                className="text-background/60 hover:text-brand-orange transition-colors text-sm"
+              >
+                Privacy Policy
+              </button>
+              <button 
+                onClick={() => alert('Terms of Service page coming soon!')} 
+                className="text-background/60 hover:text-brand-orange transition-colors text-sm"
+              >
+                Terms of Service
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
