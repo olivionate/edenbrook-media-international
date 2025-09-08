@@ -41,16 +41,13 @@ const Header = () => {
   };
 
   const handleMediaItemClick = (item: string) => {
-    // Create placeholder pages for media items
-    const mediaRoutes: { [key: string]: string } = {
-      'News & Updates': '/media/news',
-      'Videos': '/media/videos', 
-      'Blogs': '/media/blogs',
-      'Photo Gallery': '/media/gallery'
-    };
-    
-    // For now, alert user that these pages are coming soon
-    alert(`${item} page coming soon!`);
+    // Navigate to media pages
+    if (item === 'News & Updates') {
+      window.location.href = '/news-updates';
+    } else {
+      // For other items, alert user that these pages are coming soon
+      alert(`${item} page coming soon!`);
+    }
     setIsMenuOpen(false);
   };
 
