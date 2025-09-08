@@ -1,4 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 import { 
   Megaphone, 
   Palette, 
@@ -27,56 +28,64 @@ const Services = () => {
       title: "PR & Marketing Consultancy",
       description: "Comprehensive PR & Marketing strategies, communications plans, and integrated marketing solutions tailored to your business needs.",
       features: ["Market Segmentation", "Brand Strategy", "Digital Strategy", "Customer Relationship Management"],
-      image: servicePrMarketing
+      image: servicePrMarketing,
+      link: "/services/pr-marketing-consultancy"
     },
     {
       icon: <Palette className="h-8 w-8" />,
       title: "Creative Design & Branding",
       description: "Stylish presentations with cutting-edge graphics to move your business ahead of competitors with memorable brand identity.",
       features: ["Corporate Graphic Design", "Brand Identity Manual", "Logo Design", "Marketing Materials"],
-      image: serviceCreativeDesign
+      image: serviceCreativeDesign,
+      link: "/services/creative-design-branding"
     },
     {
       icon: <Calendar className="h-8 w-8" />,
       title: "Event Management & Planning",
       description: "Complete event management services from conception to execution, ensuring your events exceed expectations and achieve objectives.",
       features: ["Exhibitions", "Conferences", "Workshops", "Product Launches"],
-      image: serviceEventManagement
+      image: serviceEventManagement,
+      link: "/services/event-management-planning"
     },
     {
       icon: <BookOpen className="h-8 w-8" />,
       title: "Publishing & Printing",
       description: "Quality design and print services for magazines, books, brochures, reports, and more with expert content development.",
       features: ["Magazine Publishing", "Book Design", "Corporate Reports", "Marketing Collateral"],
-      image: servicePublishing
+      image: servicePublishing,
+      link: "/services/publishing-printing"
     },
     {
       icon: <Globe className="h-8 w-8" />,
       title: "Web Design & Development",
       description: "Professional website design and development services with fast turnaround times without compromising quality.",
       features: ["Website Design", "E-commerce Solutions", "Mobile Responsive", "CMS Development"],
-      image: serviceWebDevelopment
+      image: serviceWebDevelopment,
+      link: "/services/web-design-development"
     },
     {
       icon: <Target className="h-8 w-8" />,
       title: "Business & Strategic Plans",
       description: "Comprehensive strategic and business planning services to guide your organization toward sustainable growth and success.",
       features: ["Strategic Planning", "Business Plan Development", "Market Analysis", "Financial Projections"],
-      image: serviceBusinessPlanning
+      image: serviceBusinessPlanning,
+      link: "/services/business-strategic-plans"
     },
     {
       icon: <Camera className="h-8 w-8" />,
       title: "Multimedia Production",
       description: "Professional audio-visual services including photography, videography, and multimedia content creation for all occasions.",
       features: ["Corporate Photography", "Video Production", "TV Commercials", "Event Coverage"],
-      image: serviceMultimedia
+      image: serviceMultimedia,
+      link: "/services/multimedia-production"
     },
     {
       icon: <GraduationCap className="h-8 w-8" />,
       title: "Capacity Building & Training",
       description: "Knowledge development and mobilization services to support sustainable development across various sectors and industries.",
       features: ["Technical Training", "Workshop Facilitation", "Strategic Planning Support", "Change Management"],
-      image: serviceTraining
+      image: serviceTraining,
+      link: "/services/capacity-building-training"
     }
   ];
 
@@ -94,10 +103,10 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className="group hover:shadow-lg transition-all duration-300 border-0 bg-background/80 backdrop-blur-sm hover:bg-background overflow-hidden"
-            >
+            <Link to={service.link} key={index}>
+              <Card 
+                className="group hover:shadow-lg transition-all duration-300 border-0 bg-background/80 backdrop-blur-sm hover:bg-background overflow-hidden cursor-pointer"
+              >
               {/* Service Image */}
               <div className="relative h-48 overflow-hidden">
                 <img 
@@ -130,6 +139,7 @@ const Services = () => {
                 </ul>
               </CardContent>
             </Card>
+            </Link>
           ))}
         </div>
       </div>

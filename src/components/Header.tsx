@@ -27,14 +27,28 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const scrollToSection = (sectionId: string) => {
+    // If we're not on home page, navigate to home first
+    if (window.location.pathname !== '/') {
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+    
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
   };
 
   const handleMediaItemClick = (item: string) => {
-    // For now, just log the selection - can be expanded to navigate to actual pages
-    console.log(`Navigate to ${item}`);
+    // Create placeholder pages for media items
+    const mediaRoutes: { [key: string]: string } = {
+      'News Updates': '/media/news',
+      'Videos': '/media/videos', 
+      'Blogs': '/media/blogs',
+      'Photo Gallery': '/media/gallery'
+    };
+    
+    // For now, alert user that these pages are coming soon
+    alert(`${item} page coming soon!`);
     setIsMenuOpen(false);
   };
 
@@ -43,13 +57,13 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <img 
               src="/lovable-uploads/4aa4b176-5c70-4c8f-9ac6-5e25a776ed6b.png" 
               alt="Edenbrook Media International" 
               className="h-8 w-auto"
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

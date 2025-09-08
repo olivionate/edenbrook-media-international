@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -24,10 +25,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-brand-orange">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#home" className="text-background/80 hover:text-brand-orange transition-colors">Home</a></li>
-              <li><a href="#about" className="text-background/80 hover:text-brand-orange transition-colors">About Us</a></li>
-              <li><a href="#services" className="text-background/80 hover:text-brand-orange transition-colors">Services</a></li>
-              <li><a href="#contact" className="text-background/80 hover:text-brand-orange transition-colors">Contact</a></li>
+              <li><Link to="/#home" className="text-background/80 hover:text-brand-orange transition-colors">Home</Link></li>
+              <li><Link to="/#about" className="text-background/80 hover:text-brand-orange transition-colors">About Us</Link></li>
+              <li><Link to="/#services" className="text-background/80 hover:text-brand-orange transition-colors">Services</Link></li>
+              <li><Link to="/#contact" className="text-background/80 hover:text-brand-orange transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -46,14 +47,14 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-brand-orange flex-shrink-0" />
                 <div className="text-background/80 text-sm">
-                  +254 721 658 788<br />
-                  +254 736 325 788
+                  <a href="tel:+254721658788" className="hover:text-brand-orange transition-colors">+254 721 658 788</a><br />
+                  <a href="tel:+254736325788" className="hover:text-brand-orange transition-colors">+254 736 325 788</a>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-brand-orange flex-shrink-0" />
                 <div className="text-background/80 text-sm">
-                  info@edenbrookmedia.co.ke
+                  <a href="mailto:info@edenbrookmedia.co.ke" className="hover:text-brand-orange transition-colors">info@edenbrookmedia.co.ke</a>
                 </div>
               </div>
             </div>
@@ -66,8 +67,18 @@ const Footer = () => {
               © 2024 Edenbrook Media International. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-background/60 hover:text-brand-orange transition-colors text-sm">Privacy Policy</a>
-              <a href="#" className="text-background/60 hover:text-brand-orange transition-colors text-sm">Terms of Service</a>
+              <button 
+                onClick={() => alert('Privacy Policy page coming soon!')} 
+                className="text-background/60 hover:text-brand-orange transition-colors text-sm"
+              >
+                Privacy Policy
+              </button>
+              <button 
+                onClick={() => alert('Terms of Service page coming soon!')} 
+                className="text-background/60 hover:text-brand-orange transition-colors text-sm"
+              >
+                Terms of Service
+              </button>
             </div>
           </div>
         </div>
