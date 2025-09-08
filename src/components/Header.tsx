@@ -9,6 +9,16 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Menu, X, ChevronDown } from "lucide-react";
 
+// Import service images
+import prMarketingImg from "@/assets/service-pr-marketing.jpg";
+import creativeDesignImg from "@/assets/service-creative-design.jpg";
+import eventManagementImg from "@/assets/service-event-management.jpg";
+import publishingImg from "@/assets/service-publishing.jpg";
+import webDevelopmentImg from "@/assets/service-web-development.jpg";
+import businessPlanningImg from "@/assets/service-business-planning.jpg";
+import multimediaImg from "@/assets/service-multimedia.jpg";
+import trainingImg from "@/assets/service-training.jpg";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMediaDropdownOpen, setIsMediaDropdownOpen] = useState(false);
@@ -64,45 +74,85 @@ const Header = () => {
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-64 mt-2 bg-background border shadow-lg z-50">
-                <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
-                  <Link to="/services/pr-marketing-consultancy" className="w-full">
-                    PR & Marketing Consultancy
+              <DropdownMenuContent className="w-80 mt-2 bg-background border shadow-lg z-50 p-0">
+                <DropdownMenuItem className="cursor-pointer hover:bg-muted p-0">
+                  <Link to="/services/pr-marketing-consultancy" className="w-full flex items-center p-3">
+                    <img 
+                      src={prMarketingImg} 
+                      alt="PR & Marketing" 
+                      className="w-12 h-12 object-cover rounded-md mr-3"
+                    />
+                    <span>PR & Marketing Consultancy</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
-                  <Link to="/services/creative-design-branding" className="w-full">
-                    Creative Design & Branding
+                <DropdownMenuItem className="cursor-pointer hover:bg-muted p-0">
+                  <Link to="/services/creative-design-branding" className="w-full flex items-center p-3">
+                    <img 
+                      src={creativeDesignImg} 
+                      alt="Creative Design" 
+                      className="w-12 h-12 object-cover rounded-md mr-3"
+                    />
+                    <span>Creative Design & Branding</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
-                  <Link to="/services/event-management-planning" className="w-full">
-                    Event Management & Planning
+                <DropdownMenuItem className="cursor-pointer hover:bg-muted p-0">
+                  <Link to="/services/event-management-planning" className="w-full flex items-center p-3">
+                    <img 
+                      src={eventManagementImg} 
+                      alt="Event Management" 
+                      className="w-12 h-12 object-cover rounded-md mr-3"
+                    />
+                    <span>Event Management & Planning</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
-                  <Link to="/services/publishing-printing" className="w-full">
-                    Publishing & Printing
+                <DropdownMenuItem className="cursor-pointer hover:bg-muted p-0">
+                  <Link to="/services/publishing-printing" className="w-full flex items-center p-3">
+                    <img 
+                      src={publishingImg} 
+                      alt="Publishing & Printing" 
+                      className="w-12 h-12 object-cover rounded-md mr-3"
+                    />
+                    <span>Publishing & Printing</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
-                  <Link to="/services/web-design-development" className="w-full">
-                    Web Design & Development
+                <DropdownMenuItem className="cursor-pointer hover:bg-muted p-0">
+                  <Link to="/services/web-design-development" className="w-full flex items-center p-3">
+                    <img 
+                      src={webDevelopmentImg} 
+                      alt="Web Development" 
+                      className="w-12 h-12 object-cover rounded-md mr-3"
+                    />
+                    <span>Web Design & Development</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
-                  <Link to="/services/business-strategic-plans" className="w-full">
-                    Business & Strategic Plans
+                <DropdownMenuItem className="cursor-pointer hover:bg-muted p-0">
+                  <Link to="/services/business-strategic-plans" className="w-full flex items-center p-3">
+                    <img 
+                      src={businessPlanningImg} 
+                      alt="Business Planning" 
+                      className="w-12 h-12 object-cover rounded-md mr-3"
+                    />
+                    <span>Business & Strategic Plans</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
-                  <Link to="/services/multimedia-production" className="w-full">
-                    Multimedia Production
+                <DropdownMenuItem className="cursor-pointer hover:bg-muted p-0">
+                  <Link to="/services/multimedia-production" className="w-full flex items-center p-3">
+                    <img 
+                      src={multimediaImg} 
+                      alt="Multimedia Production" 
+                      className="w-12 h-12 object-cover rounded-md mr-3"
+                    />
+                    <span>Multimedia Production</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
-                  <Link to="/services/capacity-building-training" className="w-full">
-                    Capacity Building & Training
+                <DropdownMenuItem className="cursor-pointer hover:bg-muted p-0">
+                  <Link to="/services/capacity-building-training" className="w-full flex items-center p-3">
+                    <img 
+                      src={trainingImg} 
+                      alt="Training" 
+                      className="w-12 h-12 object-cover rounded-md mr-3"
+                    />
+                    <span>Capacity Building & Training</span>
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -201,58 +251,98 @@ const Header = () => {
                   <div className="ml-4 mt-2 space-y-2">
                     <Link 
                       to="/services/pr-marketing-consultancy"
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
+                      <img 
+                        src={prMarketingImg} 
+                        alt="PR & Marketing" 
+                        className="w-8 h-8 object-cover rounded mr-2"
+                      />
                       PR & Marketing Consultancy
                     </Link>
                     <Link 
                       to="/services/creative-design-branding"
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
+                      <img 
+                        src={creativeDesignImg} 
+                        alt="Creative Design" 
+                        className="w-8 h-8 object-cover rounded mr-2"
+                      />
                       Creative Design & Branding
                     </Link>
                     <Link 
                       to="/services/event-management-planning"
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
+                      <img 
+                        src={eventManagementImg} 
+                        alt="Event Management" 
+                        className="w-8 h-8 object-cover rounded mr-2"
+                      />
                       Event Management & Planning
                     </Link>
                     <Link 
                       to="/services/publishing-printing"
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
+                      <img 
+                        src={publishingImg} 
+                        alt="Publishing & Printing" 
+                        className="w-8 h-8 object-cover rounded mr-2"
+                      />
                       Publishing & Printing
                     </Link>
                     <Link 
                       to="/services/web-design-development"
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
+                      <img 
+                        src={webDevelopmentImg} 
+                        alt="Web Development" 
+                        className="w-8 h-8 object-cover rounded mr-2"
+                      />
                       Web Design & Development
                     </Link>
                     <Link 
                       to="/services/business-strategic-plans"
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
+                      <img 
+                        src={businessPlanningImg} 
+                        alt="Business Planning" 
+                        className="w-8 h-8 object-cover rounded mr-2"
+                      />
                       Business & Strategic Plans
                     </Link>
                     <Link 
                       to="/services/multimedia-production"
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
+                      <img 
+                        src={multimediaImg} 
+                        alt="Multimedia Production" 
+                        className="w-8 h-8 object-cover rounded mr-2"
+                      />
                       Multimedia Production
                     </Link>
                     <Link 
                       to="/services/capacity-building-training"
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
+                      <img 
+                        src={trainingImg} 
+                        alt="Training" 
+                        className="w-8 h-8 object-cover rounded mr-2"
+                      />
                       Capacity Building & Training
                     </Link>
                   </div>
