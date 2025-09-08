@@ -7,6 +7,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Menu, X, ChevronDown } from "lucide-react";
+import ServiceModal from "./ServiceModal";
+import { servicesData } from "@/data/servicesData";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,13 +26,6 @@ const Header = () => {
   const handleMediaItemClick = (item: string) => {
     // For now, just log the selection - can be expanded to navigate to actual pages
     console.log(`Navigate to ${item}`);
-    setIsMenuOpen(false);
-  };
-
-  const handleServiceItemClick = (service: string) => {
-    // For now, scroll to services section and log the selection
-    console.log(`Navigate to ${service}`);
-    scrollToSection('services');
     setIsMenuOpen(false);
   };
 
@@ -71,54 +66,70 @@ const Header = () => {
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-64 mt-2 bg-background border shadow-lg z-50">
-                <DropdownMenuItem 
-                  onClick={() => handleServiceItemClick('PR & Marketing Consultancy')}
-                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                <ServiceModal 
+                  title="PR & Marketing Consultancy" 
+                  content={servicesData["PR & Marketing Consultancy"]}
                 >
-                  PR & Marketing Consultancy
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  onClick={() => handleServiceItemClick('Creative Design & Branding')}
-                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                  <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
+                    PR & Marketing Consultancy
+                  </DropdownMenuItem>
+                </ServiceModal>
+                <ServiceModal 
+                  title="Creative Design & Branding" 
+                  content={servicesData["Creative Design & Branding"]}
                 >
-                  Creative Design & Branding
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  onClick={() => handleServiceItemClick('Event Management & Planning')}
-                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                  <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
+                    Creative Design & Branding
+                  </DropdownMenuItem>
+                </ServiceModal>
+                <ServiceModal 
+                  title="Event Management & Planning" 
+                  content={servicesData["Event Management & Planning"]}
                 >
-                  Event Management & Planning
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  onClick={() => handleServiceItemClick('Publishing & Printing')}
-                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                  <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
+                    Event Management & Planning
+                  </DropdownMenuItem>
+                </ServiceModal>
+                <ServiceModal 
+                  title="Publishing & Printing" 
+                  content={servicesData["Publishing & Printing"]}
                 >
-                  Publishing & Printing
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  onClick={() => handleServiceItemClick('Web Design & Development')}
-                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                  <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
+                    Publishing & Printing
+                  </DropdownMenuItem>
+                </ServiceModal>
+                <ServiceModal 
+                  title="Web Design & Development" 
+                  content={servicesData["Web Design & Development"]}
                 >
-                  Web Design & Development
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  onClick={() => handleServiceItemClick('Business & Strategic Plans')}
-                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                  <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
+                    Web Design & Development
+                  </DropdownMenuItem>
+                </ServiceModal>
+                <ServiceModal 
+                  title="Business & Strategic Plans" 
+                  content={servicesData["Business & Strategic Plans"]}
                 >
-                  Business & Strategic Plans
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  onClick={() => handleServiceItemClick('Multimedia Production')}
-                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                  <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
+                    Business & Strategic Plans
+                  </DropdownMenuItem>
+                </ServiceModal>
+                <ServiceModal 
+                  title="Multimedia Production" 
+                  content={servicesData["Multimedia Production"]}
                 >
-                  Multimedia Production
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  onClick={() => handleServiceItemClick('Capacity Building & Training')}
-                  className="cursor-pointer hover:bg-muted px-4 py-2"
+                  <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
+                    Multimedia Production
+                  </DropdownMenuItem>
+                </ServiceModal>
+                <ServiceModal 
+                  title="Capacity Building & Training" 
+                  content={servicesData["Capacity Building & Training"]}
                 >
-                  Capacity Building & Training
-                </DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer hover:bg-muted px-4 py-2">
+                    Capacity Building & Training
+                  </DropdownMenuItem>
+                </ServiceModal>
               </DropdownMenuContent>
             </DropdownMenu>
             
@@ -213,54 +224,70 @@ const Header = () => {
                 </button>
                 {isServicesDropdownOpen && (
                   <div className="ml-4 mt-2 space-y-2">
-                    <button 
-                      onClick={() => handleServiceItemClick('PR & Marketing Consultancy')}
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                    <ServiceModal 
+                      title="PR & Marketing Consultancy" 
+                      content={servicesData["PR & Marketing Consultancy"]}
                     >
-                      PR & Marketing Consultancy
-                    </button>
-                    <button 
-                      onClick={() => handleServiceItemClick('Creative Design & Branding')}
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      <button className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm">
+                        PR & Marketing Consultancy
+                      </button>
+                    </ServiceModal>
+                    <ServiceModal 
+                      title="Creative Design & Branding" 
+                      content={servicesData["Creative Design & Branding"]}
                     >
-                      Creative Design & Branding
-                    </button>
-                    <button 
-                      onClick={() => handleServiceItemClick('Event Management & Planning')}
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      <button className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm">
+                        Creative Design & Branding
+                      </button>
+                    </ServiceModal>
+                    <ServiceModal 
+                      title="Event Management & Planning" 
+                      content={servicesData["Event Management & Planning"]}
                     >
-                      Event Management & Planning
-                    </button>
-                    <button 
-                      onClick={() => handleServiceItemClick('Publishing & Printing')}
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      <button className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm">
+                        Event Management & Planning
+                      </button>
+                    </ServiceModal>
+                    <ServiceModal 
+                      title="Publishing & Printing" 
+                      content={servicesData["Publishing & Printing"]}
                     >
-                      Publishing & Printing
-                    </button>
-                    <button 
-                      onClick={() => handleServiceItemClick('Web Design & Development')}
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      <button className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm">
+                        Publishing & Printing
+                      </button>
+                    </ServiceModal>
+                    <ServiceModal 
+                      title="Web Design & Development" 
+                      content={servicesData["Web Design & Development"]}
                     >
-                      Web Design & Development
-                    </button>
-                    <button 
-                      onClick={() => handleServiceItemClick('Business & Strategic Plans')}
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      <button className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm">
+                        Web Design & Development
+                      </button>
+                    </ServiceModal>
+                    <ServiceModal 
+                      title="Business & Strategic Plans" 
+                      content={servicesData["Business & Strategic Plans"]}
                     >
-                      Business & Strategic Plans
-                    </button>
-                    <button 
-                      onClick={() => handleServiceItemClick('Multimedia Production')}
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      <button className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm">
+                        Business & Strategic Plans
+                      </button>
+                    </ServiceModal>
+                    <ServiceModal 
+                      title="Multimedia Production" 
+                      content={servicesData["Multimedia Production"]}
                     >
-                      Multimedia Production
-                    </button>
-                    <button 
-                      onClick={() => handleServiceItemClick('Capacity Building & Training')}
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      <button className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm">
+                        Multimedia Production
+                      </button>
+                    </ServiceModal>
+                    <ServiceModal 
+                      title="Capacity Building & Training" 
+                      content={servicesData["Capacity Building & Training"]}
                     >
-                      Capacity Building & Training
-                    </button>
+                      <button className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm">
+                        Capacity Building & Training
+                      </button>
+                    </ServiceModal>
                   </div>
                 )}
               </div>
