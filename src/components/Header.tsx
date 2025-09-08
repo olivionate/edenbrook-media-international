@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import AboutModal from "@/components/AboutModal";
 import { 
   DropdownMenu,
   DropdownMenuContent,
@@ -23,6 +24,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMediaDropdownOpen, setIsMediaDropdownOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -74,7 +76,7 @@ const Header = () => {
               Home
             </button>
             <button 
-              onClick={() => scrollToSection('about')}
+              onClick={() => setIsAboutModalOpen(true)}
               className="text-foreground hover:text-primary transition-colors"
             >
               About
@@ -246,7 +248,10 @@ const Header = () => {
                 Home
               </button>
               <button 
-                onClick={() => scrollToSection('about')}
+                onClick={() => {
+                  setIsAboutModalOpen(true);
+                  setIsMenuOpen(false);
+                }}
                 className="text-left text-foreground hover:text-primary transition-colors"
               >
                 About
@@ -418,6 +423,12 @@ const Header = () => {
             </nav>
           </div>
         )}
+        
+        {/* About Modal */}
+        <AboutModal 
+          isOpen={isAboutModalOpen} 
+          onClose={() => setIsAboutModalOpen(false)} 
+        />
       </div>
     </header>
   );
