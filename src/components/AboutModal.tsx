@@ -35,8 +35,8 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden p-0">
-        <DialogHeader className="p-6 pb-0">
+      <DialogContent className="max-w-5xl w-[95vw] max-h-[95vh] overflow-hidden p-0 flex flex-col">
+        <DialogHeader className="p-6 pb-4 border-b flex-shrink-0">
           <div className="flex items-center justify-between">
             <DialogTitle className="text-3xl font-bold">
               About <span className="bg-gradient-to-r from-brand-orange to-brand-purple bg-clip-text text-transparent">Edenbrook Media</span>
@@ -50,7 +50,8 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
           </p>
         </DialogHeader>
         
-        <div className="overflow-y-auto px-6 pb-6 space-y-8">
+        <div className="overflow-y-auto flex-1 px-6 pb-6">
+          <div className="space-y-8 py-4">
           {/* About Us Introduction */}
           <section className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
@@ -211,6 +212,7 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
               </CardContent>
             </Card>
           </section>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
