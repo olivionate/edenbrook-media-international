@@ -62,7 +62,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/4aa4b176-5c70-4c8f-9ac6-5e25a776ed6b.png" 
               alt="Edenbrook Media International" 
-              className="h-8 w-auto"
+              className="h-14 w-auto"
             />
           </Link>
 
