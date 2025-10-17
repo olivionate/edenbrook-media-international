@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import AboutModal from "@/components/AboutModal";
 import { 
   DropdownMenu,
   DropdownMenuContent,
@@ -24,7 +23,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMediaDropdownOpen, setIsMediaDropdownOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
-  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -74,12 +72,12 @@ const Header = () => {
             >
               Home
             </button>
-            <button 
-              onClick={() => setIsAboutModalOpen(true)}
+            <Link 
+              to="/about-us"
               className="text-foreground hover:text-primary transition-colors"
             >
-              About
-            </button>
+              About Us
+            </Link>
             
             {/* Services Dropdown */}
             <DropdownMenu>
@@ -247,15 +245,13 @@ const Header = () => {
               >
                 Home
               </button>
-              <button 
-                onClick={() => {
-                  setIsAboutModalOpen(true);
-                  setIsMenuOpen(false);
-                }}
+              <Link 
+                to="/about-us"
                 className="text-left text-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
               >
-                About
-              </button>
+                About Us
+              </Link>
               
               {/* Mobile Services Section */}
               <div>
@@ -425,12 +421,6 @@ const Header = () => {
             </nav>
           </div>
         )}
-        
-        {/* About Modal */}
-        <AboutModal 
-          isOpen={isAboutModalOpen} 
-          onClose={() => setIsAboutModalOpen(false)} 
-        />
       </div>
     </header>
   );
