@@ -237,165 +237,204 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t">
-            <nav className="flex flex-col space-y-4">
+          <div className="md:hidden py-4 border-t max-h-[calc(100vh-5rem)] overflow-y-auto bg-background">
+            <nav className="flex flex-col space-y-4 px-2">
               <button 
-                onClick={() => scrollToSection('home')}
-                className="text-left text-foreground hover:text-primary transition-colors"
+                onClick={() => {
+                  scrollToSection('home');
+                  setIsMenuOpen(false);
+                }}
+                className="text-left text-foreground hover:text-primary transition-colors py-2 px-3 rounded-md hover:bg-muted"
               >
                 Home
               </button>
               <Link 
                 to="/about-us"
-                className="text-left text-foreground hover:text-primary transition-colors"
+                className="text-left text-foreground hover:text-primary transition-colors py-2 px-3 rounded-md hover:bg-muted block"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About Us
               </Link>
               
               {/* Mobile Services Section */}
-              <div>
+              <div className="bg-muted/30 rounded-md">
                 <button 
                   onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
-                  className="flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors"
+                  className="flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors py-2 px-3"
                 >
-                  Services
-                  <ChevronDown className={`h-4 w-4 transition-transform ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
+                  <span className="font-medium">Services</span>
+                  <ChevronDown className={`h-5 w-5 transition-transform ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {isServicesDropdownOpen && (
-                  <div className="ml-4 mt-2 space-y-2">
+                  <div className="pl-4 pb-2 space-y-1 bg-background/50">
                     <Link 
                       to="/services/pr-marketing-consultancy"
-                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
-                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-3 px-3 rounded-md hover:bg-muted"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsServicesDropdownOpen(false);
+                      }}
                     >
                       <img 
                         src={prMarketingImg} 
                         alt="PR & Marketing" 
-                        className="w-8 h-8 object-cover rounded mr-2"
+                        className="w-10 h-10 object-cover rounded mr-3"
                       />
-                      PR & Marketing Consultancy
+                      <span>PR & Marketing Consultancy</span>
                     </Link>
                     <Link 
                       to="/services/creative-design-branding"
-                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
-                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-3 px-3 rounded-md hover:bg-muted"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsServicesDropdownOpen(false);
+                      }}
                     >
                       <img 
                         src={creativeDesignImg} 
                         alt="Creative Design" 
-                        className="w-8 h-8 object-cover rounded mr-2"
+                        className="w-10 h-10 object-cover rounded mr-3"
                       />
-                      Creative Design & Branding
+                      <span>Creative Design & Branding</span>
                     </Link>
                     <Link 
                       to="/services/event-management-planning"
-                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
-                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-3 px-3 rounded-md hover:bg-muted"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsServicesDropdownOpen(false);
+                      }}
                     >
                       <img 
                         src={eventManagementImg} 
                         alt="Event Management" 
-                        className="w-8 h-8 object-cover rounded mr-2"
+                        className="w-10 h-10 object-cover rounded mr-3"
                       />
-                      Event Management & Planning
+                      <span>Event Management & Planning</span>
                     </Link>
                     <Link 
                       to="/services/publishing-printing"
-                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
-                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-3 px-3 rounded-md hover:bg-muted"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsServicesDropdownOpen(false);
+                      }}
                     >
                       <img 
                         src={publishingImg} 
                         alt="Publishing & Printing" 
-                        className="w-8 h-8 object-cover rounded mr-2"
+                        className="w-10 h-10 object-cover rounded mr-3"
                       />
-                      Publishing & Printing
+                      <span>Publishing & Printing</span>
                     </Link>
                     <Link 
                       to="/services/web-design-development"
-                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
-                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-3 px-3 rounded-md hover:bg-muted"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsServicesDropdownOpen(false);
+                      }}
                     >
                       <img 
                         src={webDevelopmentImg} 
                         alt="Web Development" 
-                        className="w-8 h-8 object-cover rounded mr-2"
+                        className="w-10 h-10 object-cover rounded mr-3"
                       />
-                      Web Design & Development
+                      <span>Web Design & Development</span>
                     </Link>
                     <Link 
                       to="/services/business-strategic-plans"
-                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
-                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-3 px-3 rounded-md hover:bg-muted"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsServicesDropdownOpen(false);
+                      }}
                     >
                       <img 
                         src={businessPlanningImg} 
                         alt="Business Planning" 
-                        className="w-8 h-8 object-cover rounded mr-2"
+                        className="w-10 h-10 object-cover rounded mr-3"
                       />
-                      Business & Strategic Plans
+                      <span>Business & Strategic Plans</span>
                     </Link>
                     <Link 
                       to="/services/multimedia-production"
-                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
-                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-3 px-3 rounded-md hover:bg-muted"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsServicesDropdownOpen(false);
+                      }}
                     >
                       <img 
                         src={multimediaImg} 
                         alt="Multimedia Production" 
-                        className="w-8 h-8 object-cover rounded mr-2"
+                        className="w-10 h-10 object-cover rounded mr-3"
                       />
-                      Multimedia Production
+                      <span>Multimedia Production</span>
                     </Link>
                     <Link 
                       to="/services/capacity-building-training"
-                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-2"
-                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center text-left text-muted-foreground hover:text-primary transition-colors text-sm py-3 px-3 rounded-md hover:bg-muted"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsServicesDropdownOpen(false);
+                      }}
                     >
                       <img 
                         src={trainingImg} 
                         alt="Training" 
-                        className="w-8 h-8 object-cover rounded mr-2"
+                        className="w-10 h-10 object-cover rounded mr-3"
                       />
-                      Capacity Building & Training
+                      <span>Capacity Building & Training</span>
                     </Link>
                   </div>
                 )}
               </div>
               
               {/* Mobile Media Section */}
-              <div>
+              <div className="bg-muted/30 rounded-md">
                 <button 
                   onClick={() => setIsMediaDropdownOpen(!isMediaDropdownOpen)}
-                  className="flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors"
+                  className="flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors py-2 px-3"
                 >
-                  Media
-                  <ChevronDown className={`h-4 w-4 transition-transform ${isMediaDropdownOpen ? 'rotate-180' : ''}`} />
+                  <span className="font-medium">Media</span>
+                  <ChevronDown className={`h-5 w-5 transition-transform ${isMediaDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {isMediaDropdownOpen && (
-                  <div className="ml-4 mt-2 space-y-2">
+                  <div className="pl-4 pb-2 space-y-1 bg-background/50">
                     <button 
-                      onClick={() => handleMediaItemClick('News & Updates')}
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      onClick={() => {
+                        handleMediaItemClick('News & Updates');
+                        setIsMediaDropdownOpen(false);
+                      }}
+                      className="block w-full text-left text-muted-foreground hover:text-primary transition-colors text-sm py-3 px-3 rounded-md hover:bg-muted"
                     >
                       News & Updates
                     </button>
                     <button 
-                      onClick={() => handleMediaItemClick('Videos')}
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      onClick={() => {
+                        handleMediaItemClick('Videos');
+                        setIsMediaDropdownOpen(false);
+                      }}
+                      className="block w-full text-left text-muted-foreground hover:text-primary transition-colors text-sm py-3 px-3 rounded-md hover:bg-muted"
                     >
                       Videos
                     </button>
                     <button 
-                      onClick={() => handleMediaItemClick('Blogs')}
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      onClick={() => {
+                        handleMediaItemClick('Blogs');
+                        setIsMediaDropdownOpen(false);
+                      }}
+                      className="block w-full text-left text-muted-foreground hover:text-primary transition-colors text-sm py-3 px-3 rounded-md hover:bg-muted"
                     >
                       Blogs
                     </button>
                     <button 
-                      onClick={() => handleMediaItemClick('Photo Gallery')}
-                      className="block text-left text-muted-foreground hover:text-primary transition-colors text-sm"
+                      onClick={() => {
+                        handleMediaItemClick('Photo Gallery');
+                        setIsMediaDropdownOpen(false);
+                      }}
+                      className="block w-full text-left text-muted-foreground hover:text-primary transition-colors text-sm py-3 px-3 rounded-md hover:bg-muted"
                     >
                       Photo Gallery
                     </button>
@@ -405,19 +444,22 @@ const Header = () => {
               
               <Link 
                 to="/contact"
-                className="text-left text-foreground hover:text-primary transition-colors"
+                className="text-left text-foreground hover:text-primary transition-colors py-2 px-3 rounded-md hover:bg-muted block"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
               </Link>
-              <Link to="/contact" className="w-full" onClick={() => setIsMenuOpen(false)}>
-                <Button 
-                  variant="default" 
-                  className="w-full bg-gradient-to-r from-brand-orange to-brand-purple hover:from-brand-orange-dark hover:to-brand-purple-dark"
-                >
-                  Get Started
-                </Button>
-              </Link>
+              <div className="pt-2">
+                <Link to="/contact" className="w-full block" onClick={() => setIsMenuOpen(false)}>
+                  <Button 
+                    variant="default" 
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-brand-orange to-brand-purple hover:from-brand-orange-dark hover:to-brand-purple-dark py-6"
+                  >
+                    Get Started
+                  </Button>
+                </Link>
+              </div>
             </nav>
           </div>
         )}
