@@ -209,21 +209,22 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             
-            <button 
-              onClick={() => scrollToSection('contact')}
+            <Link 
+              to="/contact"
               className="text-foreground hover:text-primary transition-colors"
             >
               Contact
-            </button>
+            </Link>
           </nav>
 
-          <Button 
-            variant="default" 
-            className="hidden md:inline-flex bg-gradient-to-r from-brand-orange to-brand-purple hover:from-brand-orange-dark hover:to-brand-purple-dark"
-            onClick={() => scrollToSection('contact')}
-          >
-            Get Started
-          </Button>
+          <Link to="/contact">
+            <Button 
+              variant="default" 
+              className="hidden md:inline-flex bg-gradient-to-r from-brand-orange to-brand-purple hover:from-brand-orange-dark hover:to-brand-purple-dark"
+            >
+              Get Started
+            </Button>
+          </Link>
 
           {/* Mobile menu button */}
           <Button
@@ -406,19 +407,21 @@ const Header = () => {
                 )}
               </div>
               
-              <button 
-                onClick={() => scrollToSection('contact')}
+              <Link 
+                to="/contact"
                 className="text-left text-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Contact
-              </button>
-              <Button 
-                variant="default" 
-                className="w-full bg-gradient-to-r from-brand-orange to-brand-purple hover:from-brand-orange-dark hover:to-brand-purple-dark"
-                onClick={() => scrollToSection('contact')}
-              >
-                Get Started
-              </Button>
+              </Link>
+              <Link to="/contact" className="w-full" onClick={() => setIsMenuOpen(false)}>
+                <Button 
+                  variant="default" 
+                  className="w-full bg-gradient-to-r from-brand-orange to-brand-purple hover:from-brand-orange-dark hover:to-brand-purple-dark"
+                >
+                  Get Started
+                </Button>
+              </Link>
             </nav>
           </div>
         )}
