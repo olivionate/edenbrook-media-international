@@ -68,18 +68,18 @@ const Footer = () => {
               © 2024 Edenbrook Media International. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <button 
-                onClick={() => alert('Privacy Policy page coming soon!')} 
+              <Link 
+                to="/privacy-policy"
                 className="text-background/60 hover:text-brand-orange transition-colors text-sm"
               >
                 Privacy Policy
-              </button>
-              <button 
-                onClick={() => alert('Terms of Service page coming soon!')} 
+              </Link>
+              <Link 
+                to="/terms-of-service"
                 className="text-background/60 hover:text-brand-orange transition-colors text-sm"
               >
                 Terms of Service
-              </button>
+              </Link>
             </div>
           </div>
         </div>
