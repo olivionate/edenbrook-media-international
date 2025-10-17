@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import heroBg1 from "@/assets/hero-bg-1.jpg";
 import heroBg2 from "@/assets/hero-bg-2.jpg";
 import heroBg3 from "@/assets/hero-bg-3.jpg";
@@ -126,14 +127,15 @@ const Hero = () => {
               Explore Our Services
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-8 py-6 text-lg font-semibold transition-all duration-300"
-              onClick={() => scrollToSection('about')}
-            >
-              Learn About Us
-            </Button>
+            <Link to="/about-us">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-8 py-6 text-lg font-semibold transition-all duration-300"
+              >
+                Learn About Us
+              </Button>
+            </Link>
           </div>
 
           {/* Trust Indicators */}
