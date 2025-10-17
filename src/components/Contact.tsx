@@ -10,10 +10,10 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Get In <span className="bg-gradient-to-r from-brand-orange to-brand-purple bg-clip-text text-transparent">Touch</span>
+            Contact <span className="bg-gradient-to-r from-brand-orange to-brand-purple bg-clip-text text-transparent">Us</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to transform your brand? Let's discuss how we can help you achieve your goals.
+            Get in touch with our team. We're here to answer your questions.
           </p>
         </div>
 
